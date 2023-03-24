@@ -1,0 +1,26 @@
+import textwrap
+
+def wrap(string, max_width):
+    res=list(string)
+    j=max_width-1
+    small=[]
+    big=[]
+    for i in range(0,len(res)):
+        small.append(res[i])
+        if(j==0 or i==len(res)-1):
+            big.append(small)
+            small=[]
+            j=max_width-1
+        else:
+            j-=1
+    #print(big)
+    result=[]
+    for i in big:
+        result.append(''.join(i))
+    #print(result)
+    return '\n'.join(result)
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
