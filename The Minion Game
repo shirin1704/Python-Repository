@@ -1,0 +1,19 @@
+s = input()
+kevin=0
+stuart=0
+sub=''
+vowels=['a', 'e', 'i', 'o', 'u']
+string=string.lower()
+lstr=list(string)
+length=len(lstr)
+for i in range(0, length):
+  if(lstr[i] in vowels):
+    kevin=kevin+(length-i)
+  else:
+    stuart=stuart+(length-i)
+if(kevin>stuart):
+  print(f"Kevin {kevin}")
+elif(stuart>kevin):
+  print(f"Stuart {stuart}")
+else:
+  print("Draw")
