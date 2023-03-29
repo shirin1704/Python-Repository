@@ -1,0 +1,22 @@
+from itertools import combinations
+l1=input().split()
+string=list(l1[0])
+string.sort()
+string=''.join(string)
+size=int(l1[-1])
+l2=[]
+for m in range(0, size):
+    l2=[]
+    l2.append(list(combinations(string, m+1)))
+    l3=[]
+    l4=[]
+    for i in l2:
+        for j in i:
+            j=list(j)
+            l3.append(j)
+    #print(l3)
+    for i in l3:
+        l4.append(''.join(i))
+    l4.sort()
+    for i in l4:
+        print(i)
