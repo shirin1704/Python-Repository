@@ -1,0 +1,38 @@
+def fun(s):
+    # return True if s is a valid email, else return False
+    check=True
+    special_char=['-', '_']
+    if s.index('@')!=-1:
+        username=str(s.split('@')[0])
+        new_user=''.join(filter(lambda char: char not in special_char, username))
+        if not new_user.isalnum():
+            check=False
+            return check
+        rest=str(s.split('@')[-1])
+        website=str(rest.split('.')[0])
+        if not website.isalnum():
+            check=False
+            return check
+        extension=str(rest.split('.')[-1])
+        if not extension.isalpha():
+            check=False
+            return check
+        if len(extension)>3:
+            check=False
+            return check
+    else:
+        check=False
+        return check
+    return check
+def filter_mail(emails):
+    return list(filter(fun, emails))
+
+if __name__ == '__main__':
+    n = int(input())
+    emails = []
+    for _ in range(n):
+        emails.append(input())
+
+filtered_emails = filter_mail(emails)
+filtered_emails.sort()
+print(filtered_emails)
