@@ -1,0 +1,15 @@
+from collections import OrderedDict
+n=int(input())
+supermarket= OrderedDict()
+for _ in range(n):
+    item=input().split()
+    price=int(item[-1])
+    item.remove(str(price))
+    name=' '.join(item)
+    if name in supermarket:
+        supermarket[name]=price+supermarket.get(name)
+    else:
+        supermarket[name]=price
+for i in supermarket:
+    print(i, end=' ')
+    print(supermarket.get(i))
